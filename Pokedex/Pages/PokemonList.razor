@@ -1,0 +1,25 @@
+﻿@page "/"
+@page "/pokemon"
+
+
+@if (Pokemon.Count == 0)
+{
+	<div class="spinner-border text-danger" role="status">
+	</div>
+
+	// this will render a loading spinner if pokemon list is not populated yet
+
+}
+
+else
+{
+	//else this will render up to four rows of three pokemon
+	@for (var i = 0; i < Pokemon.Count; i = i + 3)
+	{
+		<div class= "card-deck">
+			<PokemonCard Pokemon=@GetPokemon(i) />
+			<PokemonCard Pokemon=@GetPokemon(i+1) />
+			<PokemonCard Pokemon=@GetPokemon(i+2) />
+		</div>
+	}
+}
