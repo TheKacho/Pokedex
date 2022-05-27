@@ -34,8 +34,8 @@ namespace Pokedex.Pages
         private async Task LoadPage()
         {
             // gets list of pokemon resources
-            var pageResponse = (await PokeClient.GetNamedResourcePageAsync<PokeApiNet.Pokemon>(
-                ItemsPerPage, (CurrentPage - 1) * ItemsPerPage));
+            var pageResponse = await PokeClient.GetNamedResourcePageAsync<PokeApiNet.Pokemon>(
+                ItemsPerPage, (CurrentPage - 1) * ItemsPerPage);
                 TotalPokemon = pageResponse.Count;
             
             //creates list of tasks for calling and get details of the pokemon
